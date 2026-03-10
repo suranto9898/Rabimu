@@ -1,0 +1,157 @@
+.galeri {
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    padding: 4rem 1rem 6rem;
+    margin-top: -2rem;
+    position: relative;
+}
+
+.galeri .container {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 1rem 2rem;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    background: #fff;
+}
+
+.galeri .container h2, .galeri div:nth-of-type(2) h2 {
+    font-family: var(--sacramento);
+    font-size: var(--fontSize-heading-base);
+    font-weight: 400;
+    padding: 1.5rem 1rem;
+}
+
+.galeri .container figure {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-radius: 15px;
+}
+
+.galeri .container figure img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Navigasi Prev/Next */
+.galeri .container button:nth-of-type(1),
+.galeri .container button:nth-of-type(2) {
+    font-size: 2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.galeri .container button:nth-of-type(1) { left: 0.5rem; }
+.galeri .container button:nth-of-type(2) { right: 0.5rem; }
+
+/* Indikator Paging */
+.galeri .container ul {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5rem;
+}
+
+.galeri .container ul li {
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.galeri .container ul li.active { background-color: #000; }
+
+/* Tombol Lihat Semua */
+.galeri .container button:nth-of-type(3) {
+    padding: 0.6rem 1.5rem;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: var(--transition-small);
+}
+
+.galeri .container button:nth-of-type(3):hover {
+    color: #fff;
+    background-color: #000;
+}
+
+/* Lightbox Semua Foto */
+.galeri div:nth-of-type(2) {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 99;
+    overflow-y: auto;
+    transform: scale(0);
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.galeri div:nth-of-type(2) > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.galeri div:nth-of-type(2) > div img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.galeri div:nth-of-type(2) button {
+    padding: 0;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.galeri div:nth-of-type(2).active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.galeri > i {
+    top: 2rem;
+    left: 2rem;
+}
