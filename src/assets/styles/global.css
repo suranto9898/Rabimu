@@ -1,0 +1,135 @@
+:root {
+    --primary-font-color: '#212529';
+    --bg-color: #f8f9fa;
+
+    --fontSize-heading-lg: 3rem;
+    --fontSize-heading-base: 2.8rem;
+    --fontSize-text-base: 1rem;
+
+    --sacramento: Sacramento, cursive;
+    --arabic: 'Noto Naskh Arabic', serif;
+
+    --shadow-md: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    --transition-small: all .3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--primary-font-color);
+    overflow-y: hidden;
+    
+    /* Tambahan untuk background */
+    background-image: url('../images/background.jpg'); /* Sesuaikan path-nya */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Background tetap saat di-scroll */
+}
+
+
+body.active {
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+p {
+    line-height: 1.7rem;
+}
+
+.audio button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    cursor: pointer;
+    transform: translateX(200%);
+    transition: 1.5s transform ease;
+}
+
+.audio button.show {
+    transform: translateX(0);
+}
+
+.audio button.active {
+    animation: rotate 3s linear infinite;
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes upAndDown {
+    0%, 100% {
+        transform: translateY(-0.8rem);
+    }
+    50% {
+        transform: translateY(0.8rem);
+    }
+}
+
+.text-gold {
+    /* Gunakan gradient dengan kontras yang lebih tajam */
+    background: linear-gradient(135deg, #fdf6b2 0%, #bf953f 40%, #fcf6ba 60%, #b38728 100%);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    color: transparent;
+    font-weight: 700; /* Pastikan menggunakan bobot yang tebal */
+    
+    /* Menambah ketajaman dengan garis tepi yang sangat halus */
+    -webkit-text-stroke: 0.3px rgba(184, 134, 11, 0.4); 
+    
+    /* Bayangan yang lebih tegas untuk kontras dengan background */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    
+    /* Mencegah font terlihat melebar atau blur pada browser tertentu */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.nama-tamu-placeholder {
+    /* Menggunakan gradient emas yang serupa dengan teks Arab */
+    background: linear-gradient(to bottom, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    
+    /* Mengubah warna teks menjadi transparan agar background gradient muncul */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    /* Memastikan font lebih tegas */
+    font-weight: 700;
+}
